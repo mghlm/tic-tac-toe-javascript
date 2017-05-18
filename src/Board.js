@@ -7,11 +7,14 @@ var Board = function() {
 
 }
 
-Board.prototype.click = function(squareNumber) {
-  if (this.xIsNext) {
-    this.squares[squareNumber] = 'X';
-  } else {
-    this.squares[squareNumber] = 'O';
-  }
-  // (this.xIsNext) ? (this.squares[squareNumber] === 'X') : (this.squares[squareNumber] === 'O');
+Board.prototype.selectSquare = function(squareNumber) {
+  if  (this._squareNotTaken(squareNumber)) {
+    this.xIsNext ? this.squares[squareNumber] = 'X' : this.squares[squareNumber] = 'O';
+  };
+};
+
+
+
+Board.prototype._squareNotTaken = function(square) {
+  return (square === this.squares[square]);
 };

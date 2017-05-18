@@ -18,9 +18,16 @@ describe('Board', function() {
 
   describe('Square', function() {
     it('changes to X when clicked', function() {
-      board.click(0);
+      board.selectSquare(0);
       expect(board.squares[0]).toEqual('X');
     });
+
+    it('cant be picked twice', function() {
+      board.selectSquare(3);
+      board.selectSquare(3);
+      expect(board.squares[3]).toEqual('X');
+    });
   });
+
 
 })
