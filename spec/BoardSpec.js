@@ -16,13 +16,13 @@ describe('Board', function() {
     expect(board.xIsNext).toBeTruthy();
   });
 
-  // it('player wins if his/hers symbol is equal to a win combination', function() {
-  //   board.selectSquare(0);
-  //   board.selectSquare(4);
-  //   board.selectSquare(1);
-  //   board.selectSquare(5);
-  //   expect(board.selectSquare(2)).toEqual('The winner is: X');
-  // });
+  it('player wins if his/hers scorenumbers are equal to a win combination', function() {
+    board.selectSquare(0);
+    board.selectSquare(4);
+    board.selectSquare(1);
+    board.selectSquare(5);
+    expect(board.selectSquare(2)).toEqual('The winner is: X');
+  });
 
   describe('Square', function() {
     it('changes to X when clicked', function() {
@@ -39,8 +39,9 @@ describe('Board', function() {
     it('number will be pushed to the correct score-array', function() {
       board.selectSquare(5);
       board.selectSquare(2);
-      expect(board.scoreX).toEqual([5]);
-      expect(board.scoreO).toEqual([2]);
+      board.selectSquare(3);
+      expect(board.squaresX).toEqual([5, 3]);
+      expect(board.squaresO).toEqual([2]);
     });
   });
 
