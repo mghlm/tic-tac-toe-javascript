@@ -3,6 +3,8 @@
 var Board = function() {
   this.xIsNext = true;
   this.squares = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+  this.scoreX = [];
+  this.scoreO = [];
 }
 
 var winCombinations = [
@@ -15,9 +17,18 @@ var winCombinations = [
 Board.prototype.selectSquare = function(squareNumber) {
   if  (this._squareNotTaken(squareNumber)) {
     this.xIsNext ? this.squares[squareNumber] = 'X' : this.squares[squareNumber] = 'O';
+    this.xIsNext ? this.scoreX.push(squareNumber) : this.scoreO.push(squareNumber);
     this._switchPlayer();
   }
 };
+
+// Board.prototype.calculateWinner = function () {
+//   for (var i = 0; winCombinations.length; i++) {
+//     for (var x = 0; winCombinations[i].length; i++) {
+//       if ((winCombinations[i][x] ))
+//     }
+//   }
+// };
 
 Board.prototype._squareNotTaken = function(square) {
   return (square === this.squares[square]);
