@@ -12,4 +12,8 @@ describe('Board', function() {
     expect(board.squares.length).toEqual(9);
   });
 
+  it('player X starts', function() {
+    expect(board.xIsNext).toBeTruthy();
+  });
+
 })
