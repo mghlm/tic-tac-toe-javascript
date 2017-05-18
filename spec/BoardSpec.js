@@ -16,6 +16,14 @@ describe('Board', function() {
     expect(board.xIsNext).toBeTruthy();
   });
 
+  it('player wins if his/hers symbol is equal to a win combination', function() {
+    board.selectSquare(0);
+    board.selectSquare(4);
+    board.selectSquare(1);
+    board.selectSquare(5);
+    expect(board.selectSquare(2)).toEqual('The winner is: X');
+  });
+
   describe('Square', function() {
     it('changes to X when clicked', function() {
       board.selectSquare(0);
