@@ -29,5 +29,13 @@ describe('Board', function() {
     });
   });
 
+  describe("Player", function() {
+    it('changes after each turn', function() {
+      board.selectSquare(2);
+      board.selectSquare(3);
+      expect(board.squares[3]).toEqual('O');
+    });
+  });
+
 
 })
